@@ -46,16 +46,16 @@ ZoneController.prototype.SetZone = function (Zone ) {
 };
 ZoneController.prototype.SetSource = function (SourceNumber ) {
     	//if ( Zone ) {this.source = Zone; alert('Setting new Zone: ' + Zone.number);	};
-	alert('In ZoneController.prototype.SetSource');
+	console.log('In ZoneController.prototype.SetSource');
 };
 ZoneController.prototype.TogglePower = function ( ) {
-	alert('ZoneController.TogglePower Event\nNumber: ' + this.Zone.name);
+	console.log('ZoneController.TogglePower Event\nNumber: ' + this.Zone.name);
 };
 ZoneController.prototype.ToggleMute = function ( ) {
-	alert('ZoneController.ToggleMute Event\nNumber: ' + this.Zone.name);
+	console.log('ZoneController.ToggleMute Event\nNumber: ' + this.Zone.name);
 };
 ZoneController.prototype.ToggleDND = function ( ) {
-	alert('ZoneController.ToggleDND Event\nNumber: ' + this.Zone.name);
+	console.log('ZoneController.ToggleDND Event\nNumber: ' + this.Zone.name);
 };
 ZoneController.prototype.ChangeVolume = function (NewValue ) {
 	console.log("ZoneController.prototype.ChangeVolume: " + NewValue);
@@ -85,7 +85,7 @@ var jqxhr = $.getJSON( "http://lka.azurewebsites.net/HomeAudioData.html", functi
   .fail(function(jqxhr, textstatus, errorThrown) { 
 	console.log("getJSON.fail\n textstatus: " + textstatus);
 	console.log("getJSON.fail\n errorThrown: " + errorThrown );
-	alert("getJSON.fail: " + errorThrown);
+	console.log("getJSON.fail: " + errorThrown);
 })
   .always(function() {
     console.log( "JSON: complete" );
