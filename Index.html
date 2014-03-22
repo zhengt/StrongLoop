@@ -74,7 +74,7 @@ $("#Power").change(function() {ZoneController_HTML.TogglePower();});
 $("#DND").change(function() {ZoneController_HTML.ToggleDND();});
 $("#Mute").change(function() {ZoneController_HTML.ToggleMute();});
 
-var jqxhr = $.getJSON( "http://127.0.0.1/LKA/HomeAudio/HomeAudioData.json", function(JSONdata2, textstatus, jqXHR) {
+var jqxhr = $.getJSON( "http://lka.azurewebsites.net/HomeAudioData.json", function(JSONdata2, textstatus, jqXHR) {
   console.log( "JSON: success" );
 })
 
