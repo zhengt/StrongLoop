@@ -1,0 +1,95 @@
+{"zones":[
+        {
+	"number": 1,
+	"name":"Kitchen",
+	"source":1,
+	"volume":32,
+	"balance":32,
+	"bass":32,
+	"treble":32,
+	"muted":true,
+	"DND":false,
+	"Power":true
+        },
+        {
+            "number": 2,
+	"name":"Boathouse",
+	"source":1,
+	"volume":32,
+	"balance":32,
+	"bass":32,
+	"treble":32,
+	"muted":false,
+	"DND":false,
+	"Power":true
+        },
+        {
+            "number": 3,
+	"name":"Garage",
+	"source":1,
+	"volume":32,
+	"balance":32,
+	"bass":32,
+	"treble":32,
+	"muted":false,
+	"DND":false,
+	"Power":true
+        },
+        {
+            "number": 4,
+	"name":"Upper Deck",
+	"source":1,
+	"volume":32,
+	"balance":32,
+	"bass":32,
+	"treble":32,
+	"muted":false,
+	"DND":false,
+	"Power":true
+        }
+],"sources":[
+        {
+	"number": 1,
+	"name":"Zone 1 (Kitchen) Local Source"
+        },
+        {
+            "number": 2,
+	"name":"Zone 2 (Boathouse) Local Source"
+        },
+        {
+            "number": 3,
+	"name":"BoathouseLocal"
+        },
+        {
+            "number": 4,
+	"name":"BoathouseLocal"
+        },
+        {
+            "number": 5,
+	"name":"BoathouseLocal"
+        },
+        {
+            "number": 6,
+	"name":"BoathouseLocal"
+        },
+        {
+            "number": 7,
+	"name":"BoathouseLocal"
+        },
+        {
+            "number": 8,
+	"name":"BoathouseLocal"
+        },
+        {
+            "number": 9,
+	"name":"BoathouseLocal"
+        },
+        {
+            "number": 10,
+	"name":"BoathouseLocal"
+        },
+        {
+            "number": 11,
+	"name":"BoathouseLocal"
+        }
+]}

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+<!--<script id="data" type="application/json">-->
+
+<script>
+
+
+
+var Zone = function ( ) {
+	this.number;
+	this.name;
+	this.title;
+	this.powered;
+	this.dnd;
+	this.muted;
+	this.volume;
+	this.balance;
+	this.treble;
+	this.bass;
+	this.zoneexists
+};
+Zone.prototype.TogglePower = function ( ) {
+	console.log('Zone.TogglePower Event\nNumber: ' + this.name);
+};
+Zone.prototype.ToggleMute = function ( ) {
+	console.log('Zone.ToggleMute Event\nNumber: ' + this.name);
+};
+Zone.prototype.ToggleDND = function ( ) {
+	console.log('Zone.ToggleDND Event\nNumber: ' + this.name);
+};
+Zone.prototype.ChangeVolume = function ( ) {
+	console.log('Zone.ChangeVolume Event\nNumber: ' + this.name);
+};
+
+
+var ZoneController = function ( Zone ) {
+  	 this.SetZone(Zone);
+};
+ZoneController.prototype.SetZone = function (Zone ) {
+    	if ( Zone ) {this.Zone = Zone; alert('Setting new Zone: ' + Zone.number);	};
+};
+ZoneController.prototype.SetSource = function (SourceNumber ) {
+    	//if ( Zone ) {this.source = Zone; alert('Setting new Zone: ' + Zone.number);	};
+	alert('In ZoneController.prototype.SetSource');
+};
+ZoneController.prototype.TogglePower = function ( ) {
+	alert('ZoneController.TogglePower Event\nNumber: ' + this.Zone.name);
+};
+ZoneController.prototype.ToggleMute = function ( ) {
+	alert('ZoneController.ToggleMute Event\nNumber: ' + this.Zone.name);
+};
+ZoneController.prototype.ToggleDND = function ( ) {
+	alert('ZoneController.ToggleDND Event\nNumber: ' + this.Zone.name);
+};
+ZoneController.prototype.ChangeVolume = function (NewValue ) {
+	console.log("ZoneController.prototype.ChangeVolume: " + NewValue);
+	//alert('ZoneController.ChangeVolume Event\nNumber: ' + NewValue);
+	
+};
+
+$( document ).ready(function() {
+
+document.getElementById("RS232Message").innerHTML = "";
+
+
+var Zones = new Array();
+var ZoneController_HTML = new ZoneController( );
+$("#Power").change(function() {ZoneController_HTML.TogglePower();});
+$("#DND").change(function() {ZoneController_HTML.ToggleDND();});
+$("#Mute").change(function() {ZoneController_HTML.ToggleMute();});
+
+var jqxhr = $.getJSON( "http://127.0.0.1/LKA/HomeAudio/HomeAudioData.json", function(JSONdata2, textstatus, jqXHR) {
+  console.log( "JSON: success" );
+})
+
+  .done(function() {
+    console.log( "JSON: second success" );
+  })
+
+  .fail(function(jqxhr, textstatus, errorThrown) { 
+	console.log("getJSON.fail\n textstatus: " + textstatus);
+	console.log("getJSON.fail\n errorThrown: " + errorThrown );
+	alert("getJSON.fail: " + errorThrown);
+})
+  .always(function() {
+    console.log( "JSON: complete" );
+  });
+
+ // Perform other work here ...
+
+// Set another completion function for the request above
+jqxhr.complete(function() {
+	console.log("jqxhr.complete: 1");
+	console.log("jqxhr.complete: " + jqxhr.responseText);
+	//alert(jqxhr.responseText);
+ 	console.log("jqxhr.complete: 2");
+	var JSONdata3 = jQuery.parseJSON(jqxhr.responseText);
+    	console.log("jqxhr.complete: 3");
+	$.each(JSONdata3.zones, function(i,zone) {
+		Zones[zone.number]=new Zone( );
+		Zones[zone.number].number = zone.number;
+		Zones[zone.number].name = zone.name;
+		Zones[zone.number].source = zone.source;
+		Zones[zone.number].volume = zone.volume;
+    		Zones[zone.number].muted = zone.muted;
+    		optionsValues += '<option value="' + zone.number + '">' + zone.name + '</option>\n';
+    	});
+	ZoneController_HTML.SetZone(Zones[1]);
+	$("#ZoneSelector").change(function() {ZoneController_HTML.SetZone(Zones[document.getElementById("ZoneSelector").value]);});
+	$("#SourceSelector").change(function() {ZoneController_HTML.SetSource(Zones[document.getElementById("SourceSelector").value]);});
+	$("#Volume").change(function() {
+		
+		ZoneController_HTML.ChangeVolume(Zones[document.getElementById("Volume").value]);
+		//alert("VolumeChangeEvent");
+	});
+	console.log("jqxhr.complete: 4");
+	
+    	document.getElementById("ZoneSelector").innerHTML = optionsValues;
+	$("#ZoneSelector").selectmenu('refresh');
+	//alert(document.getElementById("ZoneSelector").innerHTML);
+
+	//THis code creates the correct string but doesn't do the replacement
+	var optionsValues = '';
+    	$.each(JSONdata3.sources, function(i,source) {
+		optionsValues += '<option value="' + source.number + '">' + source.name + '</option>\n';
+        	});
+    	document.getElementById("SourceSelector").innerHTML = optionsValues;
+	$("#SourceSelector").selectmenu('refresh');
+	//alert(document.getElementById("SourceSelector").innerHTML);
+});
+
+}); //Ends  --  $( document ).ready(function() { --- 
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+<div data-role="page" id="HomeAudio">
+<div data-role="header">
+<h1>Home Audio</h1>
+<div id="placeholder" name="placeholder"></div>
+</div><!-- header -->
+
+<div data-role="main" class="ui-content">
+<div id="RS232Message"></div>
+<form method="post" action="demoform.asp">
+<fieldset class="ui-field-contain">      
+<select name="Zone" id="ZoneSelector" data-native-menu="false">
+<option value="Zone01">Zone 1: Kitchen</option>
+<option value="Zone02">Zone2: Boathouse</option>
+</select>
+
+<!--<input type="checkbox" data-role="flipswitch" name="Power" id="Power">-->
+
+<fieldset>
+  <div data-role="fieldcontain">
+    <select id="Power" data-role="flipswitch">
+      <option value="Off">Off</option>
+      <option value="On">On</option>
+    </select>
+	 <select id="DND" data-role="flipswitch">
+      <option value="Off">Off</option>
+      <option value="On">On</option>
+    </select>
+ <select id="Mute" data-role="flipswitch">
+     <option value="Off">Off</option>
+      <option value="On">On</option>
+    </select>
+
+
+  </div><!--fieldcontain-->
+</fieldset>
+
+
+
+
+
+<select name="Source" id="SourceSelector" data-native-menu="false">
+<option value="Source 01">Select list Not updated prperly</option>
+<option value="Source 02">Source 2: USB</option>
+
+
+</select>
+</fieldset>
+
+<label for="points">Volume:</label>
+<input type="range" name="Volume" id="Volume" value="50" min="0" max="62" data-highlight="true" data-popup-enabled="true" data-show-value="true">
+
+<input type="submit" id="SubmitButton" name="SubmitButton" data-inline="true" value="Change2" >
+<a href="#HomeAudio_Details" id="Link">Details</a>
+</form>
+</div>
+<div data-role="footer">
+  <h1>Footer</h1>
+  </div><!-- footer -->
+</div><!-- page -->
+
+<div data-role="page" id="HomeAudio_Details">
+<div data-role="header">
+<h1>Home Audio</h1>
+</div><!-- header -->
+
+<div data-role="main" class="ui-content">
+<form method="post" action="demoform.asp">
+<fieldset class="ui-field-contain">      
+<select name="Zone" id="Zone" data-native-menu="false">
+<option value="Zone01">Zone 1: Kitchen</option>
+<option value="Zone02">Zone 2</option>
+<option value="Zone03">Zone 3</option>
+<option value="Zone04">Zone 4</option>
+<option value="Zone05">Zone 5</option>
+<option value="Zone06">Room 06</option>
+<option value="Zone07">Room 07</option>
+<option value="Zone08">Room 08</option>
+<option value="Zone09">Room 09</option>
+<option value="Zone10">Room 10</option>
+<option value="Zone11">Room11</option>
+<option value="Zone12">Room 12</option>
+</select>
+
+<input type="checkbox" data-role="flipswitch" name="Power2" id="Power2">
+<input type="checkbox" data-role="flipswitch" name="DND2" id="DND2"  data-on-text="DND"  data-off-text="Muted">
+<input type="checkbox" data-role="flipswitch" name="Mute2" id="Mute2"  data-on-text="Mute"  data-off-text="Muted">
+
+<select name="Source" id="Source" data-native-menu="false">
+<option value="Source 01">Source 1: USB</option>
+<option value="Source02">Source 2: Sirius XM</option>
+<option value="Source03">Source 3: CD Changer</option>
+<option value="Source04">Source 4: HDMI</option>
+<option value="Source05">Room 05</option>
+<option value="Source06">Room 06</option>
+<option value="Source07">Source 7: </option>
+<option value="Source08">Room 08</option>
+<option value="Source09">Room 09</option>
+<option value="Source10">Room 10</option>
+<option value="Source11">Room11</option>
+<option value="Source12">Room 12</option>
+<option value="Source13">Room 07</option>
+<option value="Source14">Room 08</option>
+<option value="Source15">Room 09</option>
+<option value="Source16">Room 10</option>
+<option value="Source17">Room11</option>
+<option value="Source18">Room 12</option>
+</select>
+</fieldset>
+
+<label for="points">Volume:</label>
+<input type="range" name="Volume2" id="Volume2" value="50" min="0" max="62" data-highlight="true" data-popup-enabled="true" data-show-value="true">
+<label for="points">Balance:</label>
+<input type="range" name="Balance" id="points" value="0" min="-18" max="18" data-highlight="true" data-popup-enabled="true" data-show-value="true">
+<label for="points">Base:</label>
+<input type="range" name="Balance" id="points" value="0" min="-18" max="18" data-highlight="true" data-popup-enabled="true" data-show-value="true">
+
+<label for="points">Treble:</label>
+<input type="range" name="Balance" id="points" value="0" min="-18" max="18" data-highlight="true" data-popup-enabled="true" data-show-value="true">
+<input type="submit" id="SubmitButton" data-inline="true" value="Change" >
+</form>
+
+<a href="#HomeAudio" >Summary</a>
+</div>
+<div data-role="footer">
+
+  <h1>Footer</h1>
+  </div><!-- footer -->
+</div><!-- page -->
+
+
+</body>
+</html>
