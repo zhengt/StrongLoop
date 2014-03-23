@@ -156,134 +156,109 @@ jqxhr.complete(function() {
 </head>
 <body>
 <div data-role="page" id="HomeAudio">
-<div data-role="header">
-<h1>LKA Home Audio</h1>
-<div id="placeholder" name="placeholder"></div>
-</div><!-- header -->
-
-<div data-role="main" class="ui-content">
-<div id="RS232Message"></div>
-<form method="post" action="demoform.asp">
-<fieldset class="ui-field-contain">      
-<select name="Zone" id="ZoneSelector" data-native-menu="false">
-<option value="Zone01">Zone 1: Kitchen</option>
-<option value="Zone02">Zone2: Boathouse</option>
-</select>
-
-<!--<input type="checkbox" data-role="flipswitch" name="Power" id="Power">-->
-
-<fieldset>
-  <div data-role="fieldcontain">
-    <select id="Power" data-role="flipswitch">
-      <option value="Off">Off</option>
-      <option value="On">On</option>
-    </select>
-	 <select id="DND" data-role="flipswitch">
-      <option value="Off">Off</option>
-      <option value="On">On</option>
-    </select>
- <select id="Mute" data-role="flipswitch">
-     <option value="Off">Off</option>
-      <option value="On">On</option>
-    </select>
-
-
-  </div><!--fieldcontain-->
-</fieldset>
-
-
-
-
-
-<select name="Source" id="SourceSelector" data-native-menu="false">
-<option value="Source 01">Select list Not updated prperly</option>
-<option value="Source 02">Source 2: USB</option>
-
-
-</select>
-</fieldset>
-
-<label for="points">Volume:</label>
-<input type="range" name="Volume" id="Volume" value="50" min="0" max="62" data-highlight="true" data-popup-enabled="true" data-show-value="true">
-
-<input type="submit" id="SubmitButton" name="SubmitButton" data-inline="true" value="Change2" >
-<a href="#HomeAudio_Details" id="Link">Details</a>
-</form>
-</div>
-<div data-role="footer">
-  <h1>Footer</h1>
-  </div><!-- footer -->
+    <!--<div data-role="header"><h1>LKA Home Audio</h1><div id="placeholder" name="placeholder"></div></div><!-- header -->
+    <div data-role="main" class="ui-content">
+        <div id="RS232Message"></div>
+        <form method="post" action="demoform.asp">
+            <fieldset class="ui-field-contain">      
+                <select name="Zone" id="ZoneSelector" data-native-menu="false">
+                    <option value="Zone01">Zone 1: Kitchen</option>
+                    <option value="Zone02">Zone2: Boathouse</option>
+                </select>
+                <fieldset class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <select id="Power" data-role="flipswitch">
+                            <option value="Off">Off</option>
+                            <option value="On">On</option>
+                        </select>
+                    </div>
+                    <div class="ui-block-b">
+	                    <select id="DND" data-role="flipswitch">
+                            <option value="Off">Off</option>
+                            <option value="On">On</option>
+                        </select>
+                    </div>
+                    <div class="ui-block-c">
+                        <select id="Mute" data-role="flipswitch">
+                            <option value="Off">Off</option>
+                            <option value="On">On</option>
+                        </select>
+                    </div><!--fieldcontain-->
+                </fieldset>
+                <select name="Source" id="SourceSelector" data-native-menu="false">
+                    <option value="Source 01">Select list Not updated prperly</option>
+                    <option value="Source 02">Source 2: USB</option>
+                </select>
+            </fieldset>
+            <label for="points">Volume:</label>
+            <input type="range" name="Volume" id="Volume" value="50" min="0" max="62" data-highlight="true" data-popup-enabled="true" data-show-value="true">
+            <input type="submit" id="SubmitButton" name="SubmitButton" data-inline="true" value="Change2" >
+        </form>
+        <a href="#HomeAudio_Details" id="Link">Details</a>
+    </div>
+    <!--<div data-role="footer"><h1>Footer</h1></div><!-- footer -->
 </div><!-- page -->
 
 <div data-role="page" id="HomeAudio_Details">
-<div data-role="header">
-<h1>LKA Home Audio</h1>
-</div><!-- header -->
+<!--<div data-role="header"><h1>LKA Home Audio</h1></div><!-- header -->
+    <div data-role="main" class="ui-content">
+        <form method="post" action="demoform.asp">
+            <fieldset class="ui-field-contain">      
+                <select name="Zone" id="Zone" data-native-menu="false">
+                    <option value="Zone01">Zone 1: Kitchen</option>
+                    <option value="Zone02">Zone 2</option>
+                    <option value="Zone03">Zone 3</option>
+                    <option value="Zone04">Zone 4</option>
+                    <option value="Zone05">Zone 5</option>
+                    <option value="Zone06">Room 06</option>
+                    <option value="Zone07">Room 07</option>
+                    <option value="Zone08">Room 08</option>
+                    <option value="Zone09">Room 09</option>
+                    <option value="Zone10">Room 10</option>
+                    <option value="Zone11">Room11</option>
+                    <option value="Zone12">Room 12</option>
+                </select>
 
-<div data-role="main" class="ui-content">
-<form method="post" action="demoform.asp">
-<fieldset class="ui-field-contain">      
-<select name="Zone" id="Zone" data-native-menu="false">
-<option value="Zone01">Zone 1: Kitchen</option>
-<option value="Zone02">Zone 2</option>
-<option value="Zone03">Zone 3</option>
-<option value="Zone04">Zone 4</option>
-<option value="Zone05">Zone 5</option>
-<option value="Zone06">Room 06</option>
-<option value="Zone07">Room 07</option>
-<option value="Zone08">Room 08</option>
-<option value="Zone09">Room 09</option>
-<option value="Zone10">Room 10</option>
-<option value="Zone11">Room11</option>
-<option value="Zone12">Room 12</option>
-</select>
+                <input type="checkbox" data-role="flipswitch" name="Power2" id="Power2">
+                <input type="checkbox" data-role="flipswitch" name="DND2" id="DND2"  data-on-text="DND"  data-off-text="Muted">
+                <input type="checkbox" data-role="flipswitch" name="Mute2" id="Mute2"  data-on-text="Mute"  data-off-text="Muted">
 
-<input type="checkbox" data-role="flipswitch" name="Power2" id="Power2">
-<input type="checkbox" data-role="flipswitch" name="DND2" id="DND2"  data-on-text="DND"  data-off-text="Muted">
-<input type="checkbox" data-role="flipswitch" name="Mute2" id="Mute2"  data-on-text="Mute"  data-off-text="Muted">
+                <select name="Source" id="Source" data-native-menu="false">
+                    <option value="Source 01">Source 1: USB</option>
+                    <option value="Source02">Source 2: Sirius XM</option>
+                    <option value="Source03">Source 3: CD Changer</option>
+                    <option value="Source04">Source 4: HDMI</option>
+                    <option value="Source05">Room 05</option>
+                    <option value="Source06">Room 06</option>
+                    <option value="Source07">Source 7: </option>
+                    <option value="Source08">Room 08</option>
+                    <option value="Source09">Room 09</option>
+                    <option value="Source10">Room 10</option>
+                    <option value="Source11">Room11</option>
+                    <option value="Source12">Room 12</option>
+                    <option value="Source13">Room 07</option>
+                    <option value="Source14">Room 08</option>
+                    <option value="Source15">Room 09</option>
+                    <option value="Source16">Room 10</option>
+                    <option value="Source17">Room11</option>
+                    <option value="Source18">Room 12</option>
+                </select>
+            </fieldset>
 
-<select name="Source" id="Source" data-native-menu="false">
-<option value="Source 01">Source 1: USB</option>
-<option value="Source02">Source 2: Sirius XM</option>
-<option value="Source03">Source 3: CD Changer</option>
-<option value="Source04">Source 4: HDMI</option>
-<option value="Source05">Room 05</option>
-<option value="Source06">Room 06</option>
-<option value="Source07">Source 7: </option>
-<option value="Source08">Room 08</option>
-<option value="Source09">Room 09</option>
-<option value="Source10">Room 10</option>
-<option value="Source11">Room11</option>
-<option value="Source12">Room 12</option>
-<option value="Source13">Room 07</option>
-<option value="Source14">Room 08</option>
-<option value="Source15">Room 09</option>
-<option value="Source16">Room 10</option>
-<option value="Source17">Room11</option>
-<option value="Source18">Room 12</option>
-</select>
-</fieldset>
+            <label for="points">Volume:</label>
+            <input type="range" name="Volume2" id="Volume2" value="50" min="0" max="62" data-highlight="true" data-popup-enabled="true" data-show-value="true">
+            <label for="points">Balance:</label>
+            <input type="range" name="Balance" id="points" value="0" min="-18" max="18" data-highlight="true" data-popup-enabled="true" data-show-value="true">
+            <label for="points">Base:</label>
+            <input type="range" name="Balance" id="points" value="0" min="-18" max="18" data-highlight="true" data-popup-enabled="true" data-show-value="true">
 
-<label for="points">Volume:</label>
-<input type="range" name="Volume2" id="Volume2" value="50" min="0" max="62" data-highlight="true" data-popup-enabled="true" data-show-value="true">
-<label for="points">Balance:</label>
-<input type="range" name="Balance" id="points" value="0" min="-18" max="18" data-highlight="true" data-popup-enabled="true" data-show-value="true">
-<label for="points">Base:</label>
-<input type="range" name="Balance" id="points" value="0" min="-18" max="18" data-highlight="true" data-popup-enabled="true" data-show-value="true">
-
-<label for="points">Treble:</label>
-<input type="range" name="Balance" id="points" value="0" min="-18" max="18" data-highlight="true" data-popup-enabled="true" data-show-value="true">
-<input type="submit" id="SubmitButton" data-inline="true" value="Change" >
-</form>
-
-<a href="#HomeAudio" >Summary</a>
-</div>
-<div data-role="footer">
-
-  <h1>Footer</h1>
-  </div><!-- footer -->
+            <label for="points">Treble:</label>
+            <input type="range" name="Balance" id="points" value="0" min="-18" max="18" data-highlight="true" data-popup-enabled="true" data-show-value="true">
+            <input type="submit" id="SubmitButton" data-inline="true" value="Change" >
+        </form>
+        <a href="#HomeAudio" >Summary</a>
+    </div>
+    <!--<div data-role="footer"><h1>Footer</h1></div><!-- footer -->
 </div><!-- page -->
-
-
 </body>
 </html>
