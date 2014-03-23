@@ -199,7 +199,15 @@ jqxhr.complete(function() {
            <!--<input type="submit" id="SubmitButton" name="SubmitButton" data-inline="true" value="Change2" >-->
            <fieldset class="ui-grid-b">
                 <div class="ui-block-a">
-                    Balance: 0
+                    
+                    <a href="#popupBasic" data-rel="popup">Open Popup</a>
+
+                    <div data-role="popup" id="popupBasic">
+	                <label for="points">Balance:</label>
+                    <input type="range" name="Balance" id="points" value="0" min="-18" max="18" data-highlight="true" data-popup-enabled="true" data-show-value="true">
+            
+                    </div>
+
                 </div>
                 <div class="ui-block-b">
 	                   Treble: 0
