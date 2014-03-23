@@ -197,16 +197,18 @@ jqxhr.complete(function() {
             <label for="points">Volume:</label>
             <input type="range" name="Volume" id="Volume" value="50" min="0" max="62" data-highlight="true" data-popup-enabled="true" data-show-value="true">
            <!--<input type="submit" id="SubmitButton" name="SubmitButton" data-inline="true" value="Change2" >-->
-           <fieldset class="ui-grid-b">
-                <div class="ui-block-a">
-                    
-                    <a href="#popupBasic" data-rel="popup">Open Popup</a>
-
-                    <div data-role="popup" id="popupBasic">
+           <div data-role="popup" id="popupBasic">
 	                <label for="points">Balance:</label>
                     <input type="range" name="Balance" id="points" value="0" min="-18" max="18" data-highlight="true" data-popup-enabled="true" data-show-value="true">
             
                     </div>
+                    
+                    <fieldset class="ui-grid-b">
+                <div class="ui-block-a">
+                    
+                    <a href="#popupBasic" data-rel="popup">Balance</a>
+
+                    
 
                 </div>
                 <div class="ui-block-b">
