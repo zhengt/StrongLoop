@@ -158,7 +158,7 @@ jqxhr.complete(function() {
                     <option value="Zone01">Zone 1: Kitchen</option>
                     <option value="Zone02">Zone2: Boathouse</option>
                 </select>
-                <fieldset class="ui-grid-b">
+                <fieldset class="ui-grid-a">
                     <div class="ui-block-a">
                         <label for="Power">Power</label>
                         <select id="Power" data-role="flipswitch">
@@ -166,6 +166,7 @@ jqxhr.complete(function() {
                             <option value="On">On</option>
                         </select>
                     </div>
+                    <!-- Removed ability to control DND since it philosophically goes against the DND capability.
                     <div class="ui-block-b">
 	                    <label for="DND">DND</label>
 	                    <select id="DND" data-role="flipswitch">
@@ -173,7 +174,8 @@ jqxhr.complete(function() {
                             <option value="On">On</option>
                         </select>
                     </div>
-                    <div class="ui-block-c">
+                    -->
+                    <div class="ui-block-b">
                         <label for="Mute">Mute</label>
                         <select id="Mute" data-role="flipswitch">
                             <option value="Off">Off</option>
@@ -189,22 +191,23 @@ jqxhr.complete(function() {
             <br>
             <br>
             <br>
-                <fieldset class="ui-grid-b">
-                    <div class="ui-block-a">
-                        Balance: 0
-                    </div>
-                    <div class="ui-block-b">
-	                    Treble: 0
-                    </div>
-                    <div class="ui-block-c">
-                        Bass: 0
-                    </div><!--fieldcontain-->
-                </fieldset>
+                
             <label for="points">Volume:</label>
             <input type="range" name="Volume" id="Volume" value="50" min="0" max="62" data-highlight="true" data-popup-enabled="true" data-show-value="true">
            <!--<input type="submit" id="SubmitButton" name="SubmitButton" data-inline="true" value="Change2" >-->
+           <fieldset class="ui-grid-b">
+                <div class="ui-block-a">
+                    Balance: 0
+                </div>
+                <div class="ui-block-b">
+	                   Treble: 0
+                </div>
+                <div class="ui-block-c">
+                    Bass: 0
+                </div><!--fieldcontain-->
+            </fieldset>
         </form>
-        <a href="#HomeAudio_Details" id="Link">Details</a>
+        <!--<a href="#HomeAudio_Details" id="Link">Details</a>-->
     </div>
     <!--<div data-role="footer"><h1>Footer</h1></div><!-- footer -->
 </div><!-- page -->
