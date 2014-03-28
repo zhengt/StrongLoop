@@ -1,0 +1,66 @@
+General Sequence of steps:
+1) Create Github repository
+2) Create Cloud9 project (order of 1 & 2 not important)
+3) In Cloud9 perform a “Clone Repository”
+4) In cloud9 perform a git add .
+5) In cloud9 perform a git commit
+6) In cloud9 perform a git push
+
+
+GITHUB Instructions: Create a new repository on the command line
+====================================================================
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/LKALance/LKA.git
+git push -u origin master
+
+GITHUB Instructions: Push an existing repository from the command line
+====================================================================
+git remote add origin https://github.com/LKALance/LKA.git
+git push -u origin master
+
+
+Connection Terminated. Reconnecting... Done.
+lkalance@lka:~/806407 $ git add .
+fatal: Not a git repository (or any parent up to mount point /var/lib/stickshift)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+lkalance@lka:~/806407 $ git remote add origin https://github.com/LKALance/Audio.git
+fatal: Not a git repository (or any parent up to mount point /var/lib/stickshift)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+lkalance@lka:~/806407 $ touch README.md
+lkalance@lka:~/806407 $ git init
+Initialized empty Git repository in /var/lib/stickshift/532a1323e0b8cd61870001d0/app-root/data/806407/.git/
+lkalance@lka:~/806407 (master) $ git add README.md
+lkalance@lka:~/806407 (master) $ git commit -m "first commit"
+[master (root-commit) 58a0e51] first commit
+ 1 file changed, 26 insertions(+)
+ create mode 100755 README.md
+lkalance@lka:~/806407 (master) $ git remote add origin https://github.com/LKALance/LKA.git
+lkalance@lka:~/806407 (master) $ git push -u origin master
+fatal: Authentication failed
+lkalance@lka:~/806407 (master) $ git remote set-url origin https://github.com/LKALance/LKA.git
+lkalance@lka:~/806407 (master) $ git push -u origin master
+fatal: Authentication failed
+lkalance@lka:~/806407 (master) $ git remote set-url origin fb:03:11:aa:d9:21:5c:10:fa:46:a2:d2:cd:e0:ef:a2
+lkalance@lka:~/806407 (master) $ git push -u origin master
+ssh: Could not resolve hostname fb: Name or service not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+lkalance@lka:~/806407 (master) $ git remote set-url origin git@github.com:LKALance/LKA.git
+lkalance@lka:~/806407 (master) $ git push -u origin master
+Warning: Permanently added 'github.com,192.30.252.131' (RSA) to the list of known hosts.
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 661 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:LKALance/LKA.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+lkalance@lka:~/806407 (master) $ 
+
+

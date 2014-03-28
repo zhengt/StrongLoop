@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to the StrongLoop Cloud Experience!
 
 This Cloud 9 Workspace contains the StrongLoop Suite distribution in its entirety
@@ -66,3 +67,31 @@ code is running at...".
 Now that you have the Sample App running, embiggen (and, yes, that's a word) the
 browser tab on the right or on your local browser and take a peek. The Next Steps are inside!
 
+=======
+    ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
+    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
+    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
+    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
+     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
+    ----------------------------------------------------------------- 
+
+
+Hi there! Welcome to Cloud9 IDE!
+
+To get you started, we included a small hello world application.
+
+1) Open the hello-world.html file
+
+2) Click on the Preview button to open a live preview pane
+
+3) Make some changes to the file, save, watch the preview, and have fun!
+
+Happy coding!
+The Cloud9 IDE team
+
+
+## Support & Documentation
+
+Visit http://docs.c9.io for documentation, or http://support.c9.io for support.
+To watch some training videos, visit http://www.youtube.com/user/c9ide
+>>>>>>> 872c6fd953c7dbd61c1a053e148b9807820a47c1
